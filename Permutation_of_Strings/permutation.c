@@ -13,7 +13,7 @@ int next_permutation(int n, char **s)
     /* While Loop for check if the array of strings accepting next permutation or not
        if the Iter1 reaches to Zero, this indicates reaching our end and the array of strings are arranged in descending order
     */
-    while (Iter1 > 0 && strcmp(s[Iter1-1], s[Iter1]))
+    while (Iter1 > 0 && (strcmp(s[Iter1-1], s[Iter1]) >= 0))
     {
         Iter1--;
     }
@@ -22,7 +22,7 @@ int next_permutation(int n, char **s)
     
     int Iter2 = n-1;
     /* While Loop to find the next largest Index to use it in the next permutation */
-    while (strcmp(s[Iter1-1], s[Iter2]))
+    while ((strcmp(s[Iter1-1], s[Iter2]) >= 0))
     {
         Iter2--;
     }
@@ -31,7 +31,7 @@ int next_permutation(int n, char **s)
     s[Iter1-1] = s[Iter2];
     s[Iter2] = temp;
 
-    int Iter2 = n-1;
+    Iter2 = n-1;
     /* While loop to ensure the array of strings in the correct order */
     while (Iter1 < Iter2)
     {
@@ -41,6 +41,7 @@ int next_permutation(int n, char **s)
         Iter1++;
         Iter2--;
     }
+    return 1;
 }
 
 int main()
