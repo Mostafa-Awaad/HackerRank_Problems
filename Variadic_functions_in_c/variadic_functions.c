@@ -47,6 +47,14 @@ int  sum (int count,...)
     return Sum;
 }
 
+/**
+ * @brief:         Function to return the smallest number in the passed integer elements
+ * 
+ * @param  count:  Number of passed variadic function parameters that until now is unkown until the user enter them
+ * 
+ * @retval:        Integer value that equals the smallest number of the variadic function parameters
+ * 
+ */
 int min(int count,...) 
 {
     int Iter = 0;
@@ -71,6 +79,14 @@ int min(int count,...)
     return Min;
 }
 
+/**
+ * @brief:         Function to return the greatest number in the passed integer elements
+ * 
+ * @param  count:  Number of passed variadic function parameters that until now is unkown until the user enter them
+ * 
+ * @retval:        Integer value that equals the greatest number in the variadic function parameters
+ * 
+ */
 int max(int count,...) 
 {
     int Iter = 0;
