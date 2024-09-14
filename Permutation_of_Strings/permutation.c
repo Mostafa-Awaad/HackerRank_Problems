@@ -2,13 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * @brief:     Function to compute the next lexicographical permutation of an array of strings.
+ *             If no next permutation is possible (i.e., the array is sorted in descending order), the function returns 0.
+ *             Otherwise, it modifies the array to the next permutation and returns 1.
+ *             
+ * @param  n:  The number of strings in the array.
+ * @param  s:  Pointer to the array of strings
+ * 
+ * @retval:    1 if there is still next permutation.
+ *             0 if there is no possible permutation.
+ */
 int next_permutation(int n, char **s)
 {
-	/**
-	* Complete this method
-	* Return 0 when there is no next permutation and 1 otherwise
-	* Modify array s to its next permutation
-	*/
     int Iter1 = n-1;
     /* While Loop for check if the array of strings accepting next permutation or not
        if the Iter1 reaches to Zero, this indicates reaching our end and the array of strings are arranged in descending order
