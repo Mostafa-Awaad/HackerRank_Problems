@@ -107,7 +107,7 @@ int sort_by_length(const char* a, const char* b)
     if (Str_Len1 != Str_Len2)
         return (Str_Len1 - Str_Len2);
     else
-        return strcmp(Str_Len1,Str_Len2);
+        return strcmp(a, b);
 }
 
 void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const char* b)){
