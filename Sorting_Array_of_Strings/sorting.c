@@ -86,7 +86,7 @@ int sort_by_number_of_distinct_characters(const char* a, const char* b)
     {
         return (Distinct1 - Distinct2);
     }
-    strcmp(a,b);   
+    return strcmp(a,b);   
 }
 
 /**
