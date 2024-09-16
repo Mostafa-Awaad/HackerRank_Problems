@@ -3,6 +3,19 @@
 #include <string.h>
 
 /**
+ * @brief     Swapping the content of two strings
+ * 
+ * @param  a  First string 
+ * @param  b  Second string
+ */
+void Swap_Two_Strings (char **a, char **b)
+{
+    char *temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+/**
  * @brief     Strings are arranged from "smallest" to "largest" based on their lexicographical comparison
  * 
  * @param  a  First string 
@@ -38,7 +51,7 @@ int lexicographic_sort_reverse(const char* a, const char* b)
  * @param a  A pointer to the first string to be compared.
  * @param b  A pointer to the second string to be compared.
  * 
- * @return   An integer less than, equal to, or greater than zero if the first string is found,
+ * @retval   An integer less than, equal to, or greater than zero if the first string is found,
  *           respectively, to have less distinct chars, same number of distinct chars, or have more distinct chars than the second string. 
  *           If the number of distinct chars are equal, the result of `strcmp(a, b)` is returned.
  */
@@ -95,7 +108,7 @@ int sort_by_number_of_distinct_characters(const char* a, const char* b)
  * @param a  A pointer to the first string to be compared.
  * @param b  A pointer to the second string to be compared.
  * 
- * @return   An integer less than, equal to, or greater than zero if the first string is found,
+ * @retval   An integer less than, equal to, or greater than zero if the first string is found,
  *           respectively, to be shorter, of the same length, or longer than the second string. 
  *           If the lengths are equal, the result of `strcmp(a, b)` is returned.
  */
@@ -110,6 +123,96 @@ int sort_by_length(const char* a, const char* b)
         return strcmp(a, b);
 }
 
-void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const char* b)){
+void string_sort(char** arr,const int len,int (*cmp_func)(const char* a, const char* b))
+{
+    unsigned int Sort_Iter = 0;
+    unsigned int Adjacent_Iter = 0;
+    /* In case of sorting in non decreasing order */
+    if (cmp_func == lexicographic_sort)
+    {
+        /* For loop for the sorting */
+        for (Sort_Iter = 0 ; Sort_Iter < len-1 ; Sort_Iter++)
+        {
+            for (Adjacent_Iter = 0 ; Adjacent_Iter < len-1 ; Adjacent_Iter++)
+            {
+                if (lexicographic_sort(arr[Adjacent_Iter], arr[Adjacent_Iter+1]) > 0)
+                {
+                    Swap_Two_Strings (&(arr[Adjacent_Iter]), &(arr[Adjacent_Iter+1]));
+                }
+                else{/* Nothing */}
+            }
+        }
+    }
 
+    /* In case of sorting in non increasing order */
+    else if (cmp_func == lexicographic_sort_reverse)
+    {
+        /* For loop for the sorting */
+        for (Sort_Iter = 0 ; Sort_Iter < len-1 ; Sort_Iter++)
+        {
+            for (Adjacent_Iter = 0 ; Adjacent_Iter < len-1 ; Adjacent_Iter++)
+            {
+                if (lexicographic_sort_reverse(arr[Adjacent_Iter], arr[Adjacent_Iter+1]) > 0)
+                {
+                    Swap_Two_Strings (&(arr[Adjacent_Iter]), &(arr[Adjacent_Iter+1]));
+                }
+                else{/* Nothing */}
+            }
+        }
+    }
+
+    /* In case of sorting according to the number of distinct elements in non decreasing order */
+    else if (cmp_func == sort_by_number_of_distinct_characters)
+    {
+        /* For loop for the sorting */
+        for (Sort_Iter = 0 ; Sort_Iter < len-1 ; Sort_Iter++)
+        {
+            for (Adjacent_Iter = 0 ; Adjacent_Iter < len-1 ; Adjacent_Iter++)
+            {
+                if (sort_by_number_of_distinct_characters(arr[Adjacent_Iter], arr[Adjacent_Iter+1]) > 0)
+                {
+                    Swap_Two_Strings (&(arr[Adjacent_Iter]), &(arr[Adjacent_Iter+1]));
+                }
+                else{/* Nothing */}
+            }
+        }
+    }
+
+    /* In case of sorting according to the string length in non decreasing order */
+    else if (cmp_func == sort_by_length)
+    {
+        /* For loop for the sorting */
+        for (Sort_Iter = 0 ; Sort_Iter < len-1 ; Sort_Iter++)
+        {
+            for (Adjacent_Iter = 0 ; Adjacent_Iter < len-1 ; Adjacent_Iter++)
+            {
+                if (sort_by_length(arr[Adjacent_Iter], arr[Adjacent_Iter+1]) > 0)
+                {
+                    Swap_Two_Strings (&(arr[Adjacent_Iter]), &(arr[Adjacent_Iter+1]));
+                }
+                else{/* Nothing */}
+            }
+        }
+    }
+    else {printf("Enter a valid sorting method\n");}
+}
+
+int main() 
+{
+    int n;
+    scanf("%d", &n);
+  
+    char** arr;
+	arr = (char**)malloc(n * sizeof(char*));
+  
+    for(int i = 0; i < n; i++){
+        *(arr + i) = malloc(1024 * sizeof(char));
+        scanf("%s", *(arr + i));
+        *(arr + i) = realloc(*(arr + i), strlen(*(arr + i)) + 1);
+    }
+  
+    string_sort(arr, n, lexicographic_sort);
+    for(int i = 0; i < n; i++)
+        printf("%s\n", arr[i]);
+    printf("\n");
 }
