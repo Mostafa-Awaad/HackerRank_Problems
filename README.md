@@ -56,3 +56,43 @@ Process a document to tokenize it into paragraphs, sentences, and words, and all
    - The document is split into paragraphs based on newline (\n) characters.
    - Sentence Tokenization: Each paragraph is split into sentences based on periods (.).
    - Word Tokenization: Each sentence is split into words based on spaces ( ).
+   
+## 3.Sorting Array of Strings
+
+### Objective
+Sort an array of strings based on different criteria such as lexicographical order, reverse lexicographical order, number of distinct characters, and string length.
+
+### Functions
+
+1. **`Swap_Two_Strings`**
+   - Swaps two string pointers to change the order of the strings in the array.
+   ```c
+   void Swap_Two_Strings (char **a, char **b);
+2. **`lexicographic_sort`**
+   - Compares two strings lexicographically (smallest to largest).
+   ```c
+   int lexicographic_sort(const char* a, const char* b);
+3. **`lexicographic_sort_reverse`**
+   - Compares two strings in reverse lexicographical order (largest to smallest).
+   ```c
+   int lexicographic_sort_reverse(const char* a, const char* b);
+4. **`sort_by_number_of_distinct_characters`**
+   - Sorts strings by the number of distinct characters in non-decreasing order. If two strings have the same number of distinct characters, lexicographical comparison is used as a tiebreaker.
+   ```c
+   int sort_by_number_of_distinct_characters(const char* a, const char* b);
+5. **`sort_by_length`**
+   - Sorts strings by length in non-decreasing order. If two strings have the same length, lexicographical comparison is used as a tiebreaker.
+   ```c
+   int sort_by_length(const char* a, const char* b);
+6. **`string_sort`**
+   - Sorts an array of strings based on a comparison function provided as a function pointer.
+   ```c
+   void string_sort(char** arr, const int len, int (*cmp_func)(const char* a, const char* b));
+### Sorting Methods
+- **Lexicographic Sort:** Sorts the strings in lexicographic (dictionary) order.
+
+- **Reverse Lexicographic Sort:** Sorts the strings in reverse lexicographic order.
+
+- **Sort by Number of Distinct Characters**: Sorts the strings by the number of distinct characters, in non-decreasing order. If two strings have the same number of distinct characters, they are sorted lexicographically.
+
+- **Sort by Length:** Sorts the strings by their length in non-decreasing order. If two strings have the same length, they are sorted lexicographically.
