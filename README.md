@@ -96,3 +96,26 @@ Sort an array of strings based on different criteria such as lexicographical ord
 - **Sort by Number of Distinct Characters**: Sorts the strings by the number of distinct characters, in non-decreasing order. If two strings have the same number of distinct characters, they are sorted lexicographically.
 
 - **Sort by Length:** Sorts the strings by their length in non-decreasing order. If two strings have the same length, they are sorted lexicographically.
+  
+## 4. Variadic Functions in C
+### Objective
+Variadic functions in C are functions that can accept a variable number of arguments. These functions offer flexibility by allowing one fixed argument followed by any number of additional arguments. This feature is particularly useful for situations where the number of arguments isn't known at compile time.
+### Functions
+
+1. **`sum`**
+   - Computes the sum of a variable number of integer arguments.
+   ```c
+   int sum(int count, ...);
+2. **`min`**
+   - Finds and returns the smallest number from a variable number of integer arguments.
+   ```c
+   int min(int count, ...);
+3. **`max`**
+   - Finds and returns the largest number from a variable number of integer arguments.
+   ```c
+   int max(int count, ...);
+### Summary
+Variadic functions allow for flexible argument lists in C, enabling you to handle varying numbers of parameters. The provided functions (**`sum`**, **`min`**, and **`max`**) demonstrate basic operations on such arguments. They utilize the **`stdarg.h`** library to handle a variable number of arguments efficiently.
+### A Guide for **`stdarg.h`**  library
+[tutorials point][https://www.tutorialspoint.com/c_standard_library/stdarg_h.htm]
+
