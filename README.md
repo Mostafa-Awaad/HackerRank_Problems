@@ -1,5 +1,5 @@
 # HackerRank_Problems
-## Permutation of Strings
+## 1. Permutation of Strings
 
 ### Objective
 Compute the next lexicographical permutation of an array of strings.
@@ -20,3 +20,39 @@ Compute the next lexicographical permutation of an array of strings.
 
 5. **Reverse Suffix**:  
    Reverse the order of the strings from `i` onward to get the smallest possible permutation greater than the current one.
+
+## 2. Querying the Document
+
+### Objective
+Process a document to tokenize it into paragraphs, sentences, and words, and allow efficient querying of specific parts of the document.
+
+### Data Structure
+
+- **Document**: Consists of multiple paragraphs.
+- **Paragraph**: Contains multiple sentences.
+- **Sentence**: Contains multiple words.
+- **Word**: Made up of characters.
+
+### Functions
+
+1. **`kth_word_in_mth_sentence_of_nth_paragraph`**
+   - Retrieves the k-th word from the m-th sentence in the n-th paragraph.
+   ```c
+   char* kth_word_in_mth_sentence_of_nth_paragraph(char**** document, int k, int m, int n);
+2. **`kth_sentence_in_mth_paragraph`**
+   - Retrieves the k-th sentence from the m-th paragraph.
+   ```c
+   char** kth_sentence_in_mth_paragraph(char**** document, int k, int m);
+3. **`kth_paragraph`**
+   - Retrieves the k-th paragraph.
+   ```c
+   char*** kth_paragraph(char**** document, int k);
+4. **`get_document`**
+   - Processes the input text, splitting it into a 4D array of pointers.
+     ```c
+     char**** get_document(char* text);
+     Tokenization Steps
+   #### Paragraph Tokenization:
+   - The document is split into paragraphs based on newline (\n) characters.
+   - Sentence Tokenization: Each paragraph is split into sentences based on periods (.).
+   - Word Tokenization: Each sentence is split into words based on spaces ( ).
