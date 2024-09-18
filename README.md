@@ -57,7 +57,7 @@ Process a document to tokenize it into paragraphs, sentences, and words, and all
    - Sentence Tokenization: Each paragraph is split into sentences based on periods (.).
    - Word Tokenization: Each sentence is split into words based on spaces ( ).
    
-## 3.Sorting Array of Strings
+## 3. Sorting Array of Strings
 
 ### Objective
 Sort an array of strings based on different criteria such as lexicographical order, reverse lexicographical order, number of distinct characters, and string length.
